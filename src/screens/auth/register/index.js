@@ -8,7 +8,7 @@ import RegisterForm from "../../../components/auth/register_form";
 const RegisterScreen = () => (
   <>
     <Header />
-    <Section size="medium" className="auth">
+    <Section size="small" className="auth">
       <Container>
         <Column.Group centered>
           <Column size={3}>
@@ -31,8 +31,8 @@ const RegisterScreen = () => (
                       </Title>
                     </Column>
                   </Column.Group>
-                  <RegisterForm />
                 </Section>
+                <RegisterForm />
               </Card.Content>
             </Card>
           </Column>

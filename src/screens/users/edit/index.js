@@ -9,7 +9,7 @@ import UsersDelete from "../../../components/users/users_delete";
 const UserEditScreen = () => (
   <>
     <HeaderLogged />
-    <Section size="medium" className="users">
+    <Section size="samll" className="users">
       <Container>
         <Column.Group centered className="users-edit">
           <Column size={4}>

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const HomeScreen = () => (
   <Fragment>
     <Header />
-    <Section size="medium" className="home">
+    <Section size="small" className="home">
       <Container>
         <Column.Group>
           <Column size={5}>

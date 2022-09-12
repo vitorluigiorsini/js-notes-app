@@ -8,7 +8,7 @@ import LoginForm from "../../../components/auth/login_form";
 const LoginScreen = () => (
   <>
     <Header />
-    <Section size="medium" className="auth">
+    <Section size="small" className="auth">
       <Container>
         <Column.Group centered>
           <Column size={3}>
