@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Input, Column } from "rbx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react'
+import { Input, Column } from 'rbx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 function Search(props) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('')
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      props.searchNote(query);
+    if (e.key === 'Enter') {
+      props.searchNote(query)
     }
-  };
+  }
 
   return (
     <Column.Group className="is-vcentered" breakpoint="mobile">
@@ -25,11 +25,10 @@ function Search(props) {
         />
       </Column>
       <Column size={1}>
-        <a
-          href="#"
+        <div
           onClick={() => {
-            props.fetchNotes();
-            setQuery("");
+            props.fetchNotes()
+            setQuery('')
           }}
         >
           <FontAwesomeIcon
@@ -37,10 +36,10 @@ function Search(props) {
             color="grey"
             className="is-pulled-left  "
           />
-        </a>
+        </div>
       </Column>
     </Column.Group>
-  );
+  )
 }
 
-export default Search;
+export default Search

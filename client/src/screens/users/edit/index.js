@@ -1,10 +1,10 @@
-import React from "react";
-import { Column, Section, Title, Container, Card, Button } from "rbx";
-import "../../../styles/users.scss";
-import HeaderLogged from "../../../components/header_logged";
-import UsersEditForm from "../../../components/users/users_edit_form";
-import UsersEditPasswordForm from "../../../components/users/users_edit_password_form";
-import UsersDelete from "../../../components/users/users_delete";
+import React from 'react'
+import { Column, Section, Title, Container, Card } from 'rbx'
+import '../../../styles/users.scss'
+import HeaderLogged from '../../../components/header_logged'
+import UsersEditForm from '../../../components/users/users_edit_form'
+import UsersEditPasswordForm from '../../../components/users/users_edit_password_form'
+import UsersDelete from '../../../components/users/users_delete'
 
 const UserEditScreen = () => (
   <>
@@ -44,6 +44,6 @@ const UserEditScreen = () => (
       </Container>
     </Section>
   </>
-);
+)
 
-export default UserEditScreen;
+export default UserEditScreen

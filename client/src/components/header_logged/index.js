@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { Navbar, Column, Button, Dropdown } from "rbx";
-import logoImage from "../../assets/images/logo-white.png";
-import "../../styles/header.scss";
-import UsersService from "../../services/users";
-import { Redirect, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faList } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react'
+import { Navbar, Column, Button, Dropdown } from 'rbx'
+import logoImage from '../../assets/images/logo-white.png'
+import '../../styles/header.scss'
+import UsersService from '../../services/users'
+import { Navigate, Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faList } from '@fortawesome/free-solid-svg-icons'
 
 function HeaderLogged(props) {
-  const [redirectToHome, setRedirectToHome] = useState(false);
-  const [user, setUser] = useState(localStorage.getItem("user"));
+  const [redirectToHome, setRedirectToHome] = useState(false)
+  const [user] = useState(localStorage.getItem('user'))
 
   const logOut = async () => {
-    await UsersService.logout();
-    setRedirectToHome(true);
-  };
+    await UsersService.logout()
+    setRedirectToHome(true)
+  }
 
-  if (redirectToHome) return <Redirect to={{ pathname: "/" }} />;
+  if (redirectToHome) return <Navigate to="/" />
 
   return (
     <Navbar color="custom-purple" className="navbar-logged">
@@ -66,7 +66,7 @@ function HeaderLogged(props) {
             <Dropdown>
               <Dropdown.Trigger>
                 <Button className="button" color="white">
-                  <span>{JSON.parse(user)["name"]} ▼</span>
+                  <span>{JSON.parse(user)['name']} ▼</span>
                 </Button>
               </Dropdown.Trigger>
               <Dropdown.Menu>
@@ -76,9 +76,9 @@ function HeaderLogged(props) {
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item as="div">
-                    <a href="#" onClick={(e) => logOut()}>
+                    <div className="cursor-pointer" onClick={() => logOut()}>
                       LogOut
-                    </a>
+                    </div>
                   </Dropdown.Item>
                 </Dropdown.Content>
               </Dropdown.Menu>
@@ -87,7 +87,7 @@ function HeaderLogged(props) {
         </Navbar.Segment>
       </Navbar.Menu>
     </Navbar>
-  );
+  )
 }
 
-export default HeaderLogged;
+export default HeaderLogged

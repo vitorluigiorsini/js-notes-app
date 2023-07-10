@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { Button } from "rbx";
-import UsersService from "../../../services/users";
-import { Redirect } from "react-router-dom";
+import React, { useState } from 'react'
+import { Button } from 'rbx'
+import UsersService from '../../../services/users'
+import { Navigate } from 'react-router-dom'
 
 function UsersDelete() {
-  const [redirectToHome, setRedirectToHome] = useState(false);
+  const [redirectToHome, setRedirectToHome] = useState(false)
 
   const deleteUser = async () => {
-    if (window.confirm("Are you sure you wish to delete this account?")) {
-      UsersService.delete();
-      setRedirectToHome(true);
+    if (window.confirm('Are you sure you wish to delete this account?')) {
+      UsersService.delete()
+      setRedirectToHome(true)
     }
-  };
+  }
 
-  if (redirectToHome) return <Redirect to={{ pathname: "/" }} />;
+  if (redirectToHome) return <Navigate to="/" />
 
   return (
     <>
@@ -21,7 +21,7 @@ function UsersDelete() {
         Excluir conta
       </Button>
     </>
-  );
+  )
 }
 
-export default UsersDelete;
+export default UsersDelete

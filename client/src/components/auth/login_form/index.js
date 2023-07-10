@@ -1,28 +1,29 @@
-import React, { useState } from "react";
-import { Button, Field, Control, Label, Input, Column, Help } from "rbx";
-import { Redirect } from "react-router-dom";
-import UsersService from "../../../services/users";
+import React, { useState } from 'react'
+import { Button, Field, Control, Label, Input, Column, Help } from 'rbx'
+import { Navigate } from 'react-router-dom'
+import UsersService from '../../../services/users'
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [redirectToRegister, setRedirectToRegister] = useState(false);
-  const [redirectToNotes, setRedirectToNotes] = useState(false);
-  const [error, setError] = useState(false);
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [redirectToRegister, setRedirectToRegister] = useState(false)
+  const [redirectToNotes, setRedirectToNotes] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleSubmit = async (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
 
     try {
-      await UsersService.login({ email: email, password: password });
-      setRedirectToNotes(true);
+      await UsersService.login({ email: email, password: password })
+      setRedirectToNotes(true)
     } catch (error) {
-      setError(true);
+      console.log(error)
+      setError(true)
     }
-  };
+  }
 
-  if (redirectToRegister) return <Redirect to={{ pathname: "/register" }} />;
-  else if (redirectToNotes) return <Redirect to={{ pathname: "/notes" }} />;
+  if (redirectToRegister) return <Navigate to="/register" />
+  else if (redirectToNotes) return <Navigate to="/notes" />
 
   return (
     <>
@@ -57,13 +58,12 @@ function LoginForm() {
               <Control>
                 <Column.Group breakpoint="mobile">
                   <Column>
-                    <a
-                      href="#"
+                    <div
                       className="button is-white has-text-custom-purple"
-                      onClick={(e) => setRedirectToRegister(true)}
+                      onClick={() => setRedirectToRegister(true)}
                     >
                       Register or
-                    </a>
+                    </div>
                   </Column>
                   <Column>
                     <Button color="custom-purple" outlined>
@@ -78,7 +78,7 @@ function LoginForm() {
         </form>
       </Column.Group>
     </>
-  );
+  )
 }
 
-export default LoginForm;
+export default LoginForm

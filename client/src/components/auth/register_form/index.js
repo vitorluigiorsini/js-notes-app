@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { Button, Field, Label, Control, Input, Column, Help } from "rbx";
-import { Redirect } from "react-router-dom";
-import UsersService from "../../../services/users";
+import React, { useState } from 'react'
+import { Button, Field, Label, Control, Input, Column, Help } from 'rbx'
+import { Navigate } from 'react-router-dom'
+import UsersService from '../../../services/users'
 
 function RegisterForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
-  const [error, setError] = useState(false);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [redirectToLogin, setRedirectToLogin] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleSubmit = async (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
 
     try {
-      const user = await UsersService.register({
+      await UsersService.register({
         name: name,
         email: email,
-        password: password,
-      });
-      setRedirectToLogin(true);
+        password: password
+      })
+      setRedirectToLogin(true)
     } catch (error) {
-      setError(true);
+      setError(true)
     }
-  };
+  }
 
-  if (redirectToLogin) return <Redirect to={{ pathname: "/login" }} />;
+  if (redirectToLogin) return <Navigate to="/login" />
 
   return (
     <>
@@ -72,13 +72,12 @@ function RegisterForm() {
               <Control>
                 <Column.Group breakpoint="mobile">
                   <Column>
-                    <a
-                      href="#"
+                    <div
                       className="button is-white has-text-custom-purple"
-                      onClick={(e) => setRedirectToLogin(true)}
+                      onClick={() => setRedirectToLogin(true)}
                     >
                       Login or
-                    </a>
+                    </div>
                   </Column>
                   <Column>
                     <Button color="custom-purple" outlined>
@@ -93,7 +92,7 @@ function RegisterForm() {
         </form>
       </Column.Group>
     </>
-  );
+  )
 }
 
-export default RegisterForm;
+export default RegisterForm

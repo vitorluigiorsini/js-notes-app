@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import "../../../styles/notes.scss";
-import HeaderLogged from "../../../components/header_logged";
-import Notes from "../../../components/notes";
-import { Column } from "rbx";
+import React, { useState } from 'react'
+import '../../../styles/notes.scss'
+import HeaderLogged from '../../../components/header_logged'
+import Notes from '../../../components/notes'
 
 const NotesScreen = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <HeaderLogged setIsOpen={setIsOpen} />
       <Notes setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
-  );
-};
+  )
+}
 
-export default NotesScreen;
+export default NotesScreen
